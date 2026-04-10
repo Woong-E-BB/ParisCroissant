@@ -88,13 +88,12 @@ export function SiteHeader({ variant = "hub", activeLabel }: SiteHeaderProps) {
                 />
               </div>
             ) : (
-              <div>
-                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-teal-brand">
-                  PARIS CROISSANT
-                </p>
-                <p className="font-display text-[28px] tracking-tight text-brand-dark">
-                  파리크라상
-                </p>
+              <div className="grid h-12 w-[190px] place-items-center overflow-hidden rounded bg-white">
+                <img
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/logos/paris-croissant-ci.png`}
+                  alt="파리크라상"
+                  className="h-full w-full object-contain"
+                />
               </div>
             )}
             {brand ? (
