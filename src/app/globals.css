@@ -1,0 +1,206 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --brand-teal: #00a0b0;
+  --brand-dark: #1a1a2e;
+  --accent-red: #e53935;
+  --accent-gold: #c8a86d;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-[#fafafa] text-[#1a1a2e] antialiased;
+  font-family: var(--font-body), 'Noto Sans KR', sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-display), serif;
+}
+
+::selection {
+  background: rgba(0, 160, 176, 0.16);
+  color: #1a1a2e;
+}
+
+/* ── Micro Animations ── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0,160,176,0.25); }
+  50% { box-shadow: 0 0 20px 4px rgba(0,160,176,0.15); }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-right {
+  animation: slideInRight 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-left {
+  animation: slideInLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ── Carousel Transitions ── */
+.carousel-slide {
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.carousel-slide-active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.carousel-slide-prev {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.carousel-slide-next {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+/* ── Card Hover Effects ── */
+.card-hover {
+  @apply transition-all duration-300 ease-out;
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* ── Badge Styles ── */
+.badge-new {
+  @apply rounded-md bg-[#00a0b0] px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider text-white;
+}
+
+.badge-best {
+  @apply rounded-md bg-[#e53935] px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider text-white;
+}
+
+.badge-season {
+  @apply rounded-md bg-gradient-to-r from-[#f59e0b] to-[#ef4444] px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider text-white;
+}
+
+.badge-order {
+  @apply rounded-md bg-[#1a1a2e] px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider text-white;
+}
+
+/* ── Discount Badge ── */
+.discount-badge {
+  @apply absolute right-3 top-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#e53935] text-[13px] font-bold text-white shadow-lg;
+}
+
+/* ── Brand Color Bar ── */
+.brand-color-bar {
+  @apply h-1 w-full rounded-t-lg;
+}
+
+/* ── Scrollbar ── */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ── Glass Effect ── */
+.glass {
+  backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(255, 255, 255, 0.78);
+}
+
+/* ── Gradient Overlays ── */
+.overlay-gradient-dark {
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.25) 40%, transparent 100%);
+}
+
+.overlay-gradient-brand {
+  background: linear-gradient(135deg, rgba(0,160,176,0.12) 0%, transparent 50%);
+}
