@@ -88,11 +88,11 @@ export function SiteHeader({ variant = "hub", activeLabel }: SiteHeaderProps) {
                 />
               </div>
             ) : (
-              <div className="grid h-12 w-[190px] place-items-center overflow-hidden rounded bg-white">
+              <div className="grid h-16 w-[108px] shrink-0 place-items-center rounded bg-white px-2 py-1">
                 <img
                   src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/logos/paris-croissant-ci.png`}
                   alt="파리크라상"
-                  className="h-full w-full object-contain"
+                  className="max-h-full max-w-full object-contain"
                 />
               </div>
             )}
