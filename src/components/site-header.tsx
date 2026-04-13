@@ -46,42 +46,30 @@ export function SiteHeader({ variant = "hub", activeLabel }: SiteHeaderProps) {
 
   return (
     <header className="sticky top-0 z-40" id="site-header">
-      {/* Top Bar */}
-      <div className="bg-brand-dark text-white">
-        <div className="mx-auto flex max-w-[1280px] items-center justify-between gap-4 px-4 py-2 text-[11px] sm:px-6">
-          <div className="flex flex-wrap items-center gap-3 text-white/60">
-            {topPartnerLinks.map((item) => (
-              <span key={item} className="hover:text-white transition cursor-pointer">{item}</span>
-            ))}
-          </div>
-          <div className="hidden items-center gap-4 text-white/50 md:flex">
-            <span className="flex items-center gap-1.5">
-              <span className="inline-block h-1.5 w-1.5 rounded-full bg-teal-brand" />
-              공식 브랜드 통합 서비스
-            </span>
-          </div>
-        </div>
-      </div>
-
-      {/* Service Icons Bar */}
+      {/* Top Bar - Only on Hub */}
       {variant === "hub" && (
-        <div className="border-b border-gray-100 bg-white">
-          <div className="mx-auto hidden max-w-[1280px] items-center justify-center gap-8 px-4 py-2 sm:px-6 md:flex">
-            {serviceIcons.map((svc) => (
-              <button
-                key={svc.label}
-                className="flex items-center gap-1.5 text-[12px] text-gray-500 transition hover:text-teal-brand"
-              >
-                <span className="text-[14px]">{svc.icon}</span>
-                {svc.label}
-              </button>
-            ))}
+        <div className="bg-brand-dark text-white">
+          <div className="mx-auto flex max-w-[1280px] items-center justify-between gap-4 px-4 py-2 text-[11px] sm:px-6">
+            <div className="flex flex-wrap items-center gap-3 text-white/60">
+              {topPartnerLinks.map((item) => (
+                <span key={item} className="hover:text-white transition cursor-pointer">{item}</span>
+              ))}
+            </div>
+            <div className="hidden items-center gap-4 text-white/50 md:flex">
+              <span className="flex items-center gap-1.5">
+                <span className="inline-block h-1.5 w-1.5 rounded-full bg-teal-brand" />
+                공식 브랜드 통합 서비스
+              </span>
+            </div>
           </div>
         </div>
       )}
 
       {/* Main Navigation */}
-      <div className="glass border-b border-gray-200/60">
+      <div 
+        className="glass border-b border-gray-200/60"
+        style={{ "--brand-accent": brand?.accent || "#00a0b0" } as React.CSSProperties}
+      >
         <div className="mx-auto flex max-w-[1280px] items-center justify-between gap-4 px-4 py-3.5 sm:px-6">
           {/* Logo */}
           <Link href={homeHref} className="flex min-w-0 items-center gap-4">
@@ -116,10 +104,10 @@ export function SiteHeader({ variant = "hub", activeLabel }: SiteHeaderProps) {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-[15px] font-semibold transition ${
+                className={`text-[15px] font-semibold transition-colors duration-200 ${
                   activeLabel === item.label
-                    ? "text-teal-brand"
-                    : "text-gray-700 hover:text-teal-brand"
+                    ? "text-[color:var(--brand-accent)]"
+                    : "text-gray-700 hover:text-[color:var(--brand-accent)]"
                 }`}
               >
                 {item.label}
@@ -129,9 +117,18 @@ export function SiteHeader({ variant = "hub", activeLabel }: SiteHeaderProps) {
 
           {/* Actions */}
           <div className="flex items-center gap-2">
-            {/* Brand Switcher */}
+            {/* Brand Switcher or Hub Link */}
             <div className="hidden lg:block">
-              <BrandSwitcher />
+              {variant === "hub" ? (
+                <BrandSwitcher />
+              ) : (
+                <Link
+                  href="/"
+                  className="flex items-center justify-center rounded-full border border-gray-200 bg-white px-4 py-1.5 text-[12px] font-semibold text-gray-500 transition hover:border-[color:var(--brand-accent)] hover:text-[color:var(--brand-accent)]"
+                >
+                  통합허브 이동
+                </Link>
+              )}
             </div>
 
             {/* Icon Buttons */}
@@ -140,7 +137,7 @@ export function SiteHeader({ variant = "hub", activeLabel }: SiteHeaderProps) {
                 <Link
                   key={label}
                   href={href}
-                  className="grid h-10 w-10 place-items-center rounded-full text-gray-500 transition hover:bg-gray-100 hover:text-brand-dark"
+                  className="grid h-10 w-10 place-items-center rounded-full text-gray-500 transition hover:bg-gray-100 hover:text-[color:var(--brand-accent)]"
                   aria-label={label}
                 >
                   <Icon className="h-[18px] w-[18px]" />
@@ -162,14 +159,17 @@ export function SiteHeader({ variant = "hub", activeLabel }: SiteHeaderProps) {
 
       {/* Mobile Menu */}
       {menuOpen ? (
-        <div className="border-t border-gray-100 bg-white px-4 py-6 lg:hidden animate-fade-in">
+        <div 
+          className="border-t border-gray-100 bg-white px-4 py-6 lg:hidden animate-fade-in"
+          style={{ "--brand-accent": brand?.accent || "#00a0b0" } as React.CSSProperties}
+        >
           <div className="mx-auto flex max-w-[1280px] flex-col gap-4">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
-                className="text-[17px] font-semibold text-brand-dark transition hover:text-teal-brand"
+                className="text-[17px] font-semibold text-brand-dark transition hover:text-[color:var(--brand-accent)]"
               >
                 {item.label}
               </Link>
