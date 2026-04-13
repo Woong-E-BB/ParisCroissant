@@ -164,7 +164,12 @@ export function BrandDetailMvp({ slug }: BrandDetailMvpProps) {
               ? visibleProducts
               : products.slice(0, 4)
             ).map((product) => (
-              <ProductCard key={product.id} product={product} compact />
+              <ProductCard
+                key={product.id}
+                product={product}
+                href={brand.slug === "dining" ? (product.sourceUrl ?? `/products/${product.id}`) : undefined}
+                compact
+              />
             ))}
           </div>
         </section>
