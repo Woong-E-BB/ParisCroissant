@@ -65,7 +65,7 @@ export default function ParisCroissantCompliancePage() {
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[#171717]/90 backdrop-blur">
         <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-6 px-5 py-4 sm:px-8">
           <Link href="/corporate/paris-croissant" className="min-w-0">
-            <p className="text-[11px] uppercase tracking-[0.34em] text-white/50">SANGMIDANG HOLDINGS</p>
+            <p className="text-[11px] uppercase tracking-[0.34em] text-white/50">PARIS CROISSANT CORP.</p>
             <p className="mt-1 text-[25px] font-semibold tracking-[-0.04em] text-white">파리크라상</p>
           </Link>
 
@@ -78,7 +78,7 @@ export default function ParisCroissantCompliancePage() {
 
           <div className="hidden items-center gap-3 lg:flex">
             <Link href="/" className="rounded-full bg-white px-4 py-2 text-[13px] font-semibold text-[#171717] transition hover:bg-white/90">
-              상미당홀딩스 메인
+              파리크라상 메인
             </Link>
           </div>
         </div>
@@ -288,7 +288,7 @@ export default function ParisCroissantCompliancePage() {
                 </p>
                 <div className="mt-5">
                   <a href="https://sangmidang.co.kr/compliance/hotline" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-[15px] font-bold text-[#171717] transition hover:bg-white/90">
-                    상미당홀딩스 핫라인 제보
+                    파리크라상 핫라인 제보
                     <ArrowUpRight className="h-4 w-4" />
                   </a>
                 </div>
