@@ -27,12 +27,9 @@ export function BrandDetailMvp({ slug }: BrandDetailMvpProps) {
     return items.filter((product) => product.category === activeCategory);
   }, [activeCategory, brand.slug]);
 
-  const headerVariant =
-    slug === "paris-croissant" ? "croissant" : slug === "paris-baguette" ? "baguette" : "hub";
-
   return (
     <main className="bg-[#fafafa]">
-      <SiteHeader variant={headerVariant} activeLabel={brandNav[0]?.label} />
+      <SiteHeader variant={slug} activeLabel={brandNav[0]?.label} />
 
       <div className="mx-auto max-w-[1280px] px-4 pb-16 pt-6 sm:px-6">
         {/* Breadcrumb */}
