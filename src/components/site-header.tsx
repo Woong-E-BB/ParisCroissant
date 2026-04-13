@@ -31,6 +31,12 @@ const serviceIcons = [
   { label: "매장찾기", icon: "📍" },
 ];
 
+const headerActions = [
+  { icon: Search, href: "/products", label: "search" },
+  { icon: ShoppingBag, href: "/checkout", label: "cart" },
+  { icon: UserRound, href: "/login", label: "mypage" },
+];
+
 export function SiteHeader({ variant = "hub", activeLabel }: SiteHeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const navItems = variant === "hub" ? hubNav : brandNav;
@@ -130,14 +136,15 @@ export function SiteHeader({ variant = "hub", activeLabel }: SiteHeaderProps) {
 
             {/* Icon Buttons */}
             <div className="hidden items-center gap-1.5 lg:flex">
-              {[Search, ShoppingBag, UserRound].map((Icon, index) => (
-                <button
-                  key={index}
+              {headerActions.map(({ icon: Icon, href, label }) => (
+                <Link
+                  key={label}
+                  href={href}
                   className="grid h-10 w-10 place-items-center rounded-full text-gray-500 transition hover:bg-gray-100 hover:text-brand-dark"
-                  aria-label="header action"
+                  aria-label={label}
                 >
                   <Icon className="h-[18px] w-[18px]" />
-                </button>
+                </Link>
               ))}
             </div>
 

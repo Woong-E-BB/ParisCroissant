@@ -28,7 +28,7 @@ export function BrandSwitcher() {
           onClick={() => setIsOpen(false)}
         >
           <div
-            className="relative mx-4 w-full max-w-[720px] rounded-3xl bg-white p-8 shadow-hero animate-scale-in"
+            className="relative mx-4 max-h-[calc(100vh-7rem)] w-full max-w-[880px] overflow-y-auto rounded-3xl bg-white p-6 shadow-hero animate-scale-in sm:p-8"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
@@ -51,7 +51,7 @@ export function BrandSwitcher() {
             </div>
 
             {/* Brand Grid */}
-            <div className="grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-5">
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
               {brands.map((brand, index) => (
                 <Link
                   key={brand.slug}
@@ -64,13 +64,13 @@ export function BrandSwitcher() {
                 >
                   {/* Logo Circle */}
                   <div
-                    className="grid h-16 w-16 place-items-center overflow-hidden rounded-full border-2 border-gray-100 bg-white shadow-sm transition group-hover:border-teal-brand/40 group-hover:shadow-glow"
+                    className="grid h-20 w-full max-w-[132px] place-items-center rounded-2xl border border-gray-100 bg-white px-3 py-2 shadow-sm transition group-hover:border-teal-brand/40 group-hover:shadow-glow"
                   >
                     {brand.logoCrop ? (
                       <img
                         src={brand.logoCrop.src}
                         alt={brand.name}
-                        className="h-10 w-10 object-contain"
+                        className="max-h-full max-w-full object-contain"
                       />
                     ) : (
                       <span

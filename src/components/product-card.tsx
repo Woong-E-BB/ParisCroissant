@@ -33,7 +33,7 @@ const brandColors: Record<string, string> = {
 
 export function ProductCard({
   product,
-  href = "/product",
+  href = `/products/${product.id}`,
   compact = false,
 }: ProductCardProps) {
   const brandColor = brandColors[product.brandSlug] || "#00a0b0";
