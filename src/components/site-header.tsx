@@ -7,20 +7,13 @@ import { brandNav, brands, hubNav, topPartnerLinks } from "@/data/app-data";
 import { BrandSwitcher } from "@/components/brand-switcher";
 
 type SiteHeaderProps = {
-  variant?: "hub" | "baguette" | "croissant";
+  variant?: string;
   activeLabel?: string;
 };
 
-function getBrandVariant(variant: SiteHeaderProps["variant"]) {
-  if (variant === "baguette") {
-    return brands.find((brand) => brand.slug === "paris-baguette") ?? brands[0];
-  }
-
-  if (variant === "croissant") {
-    return brands.find((brand) => brand.slug === "paris-croissant") ?? brands[1];
-  }
-
-  return null;
+function getBrandVariant(variant?: string) {
+  if (!variant || variant === "hub") return null;
+  return brands.find((brand) => brand.slug === variant) ?? null;
 }
 
 const serviceIcons = [
@@ -39,10 +32,17 @@ const headerActions = [
 
 export function SiteHeader({ variant = "hub", activeLabel }: SiteHeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const navItems = variant === "hub" ? hubNav : brandNav;
   const brand = useMemo(() => getBrandVariant(variant), [variant]);
-  const homeHref =
-    variant === "croissant" ? "/brands/paris-croissant" : variant === "baguette" ? "/brands/paris-baguette" : "/";
+  
+  const navItems = variant === "hub" ? hubNav : [
+    { label: "브랜드 소개", href: `/brands/${brand?.slug}` },
+    { label: "이벤트", href: `/brands/${brand?.slug}#promotion` },
+    { label: "상품 안내", href: "/products" },
+    { label: "픽업 주문", href: "/product" },
+    { label: "창업 안내", href: "/franchise" },
+  ];
+
+  const homeHref = brand ? `/brands/${brand.slug}` : "/";
 
   return (
     <header className="sticky top-0 z-40" id="site-header">
