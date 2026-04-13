@@ -137,7 +137,10 @@ export default function ParisCroissantCompliancePage() {
       <section className="relative flex h-[100vh] min-h-[800px] w-full flex-col justify-center overflow-hidden">
         {/* Background Image & Overlay */}
         <div className="absolute inset-0 bg-[#0a0a0a]">
-          <div className="absolute inset-0 scale-105 bg-[url('https://d2afncas1tel3t.cloudfront.net/wp-content/uploads/2023/11/1620608772.jpg')] bg-cover bg-center opacity-40 transition-transform duration-[20s] hover:scale-100" />
+          <div 
+            className="absolute inset-0 scale-105 bg-cover bg-center opacity-40 transition-transform duration-[20s] hover:scale-100" 
+            style={{ backgroundImage: `url('${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/corporate-hero.png')` }}
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/50" />
         </div>
 
