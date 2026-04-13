@@ -485,6 +485,19 @@ export const heroSlides = [
     accent: "#1e4ca1",
   },
   {
+    id: "slide-paris-blue-label-matcha",
+    title: "파란라벨이라면 건강도 습관이 됩니다",
+    subtitle: "저당 말차 케이크 출시 이벤트 · 2026.04.09 - 2026.12.31",
+    brandName: "파리바게뜨",
+    href: "https://www.paris.co.kr/promotion/pb-blue-label-matcha/",
+    crop: coverImage(
+      "https://d2afncas1tel3t.cloudfront.net/wp-content/uploads/2026/04/%ED%8C%8C%EB%9E%80%EB%9D%BC%EB%B2%A8-%EC%A0%80%EB%8B%B9%EB%A7%90%EC%B0%A8%EC%BC%80%EC%9D%B4%ED%81%AC_%EC%8D%B8%EB%84%A4%EC%9D%BC_260407.jpg",
+      1000,
+      1000,
+    ),
+    accent: "#1f5bbf",
+  },
+  {
     id: "slide-pascucci",
     title: "SENSE OF ITALY",
     subtitle: "파스쿠찌 시즌 음료와 디저트를 지금 확인하세요",
