@@ -11,9 +11,15 @@ type SiteHeaderProps = {
   activeLabel?: string;
 };
 
+const brandVariantAliases: Record<string, string> = {
+  baguette: "paris-baguette",
+  croissant: "paris-croissant",
+};
+
 function getBrandVariant(variant?: string) {
   if (!variant || variant === "hub") return null;
-  return brands.find((brand) => brand.slug === variant) ?? null;
+  const resolvedVariant = brandVariantAliases[variant] ?? variant;
+  return brands.find((brand) => brand.slug === resolvedVariant) ?? null;
 }
 
 const serviceIcons = [
@@ -35,8 +41,8 @@ export function SiteHeader({ variant = "hub", activeLabel }: SiteHeaderProps) {
   const brand = useMemo(() => getBrandVariant(variant), [variant]);
   
   const navItems = variant === "hub" ? hubNav : [
-    { label: "브랜드 소개", href: `/brands/${brand?.slug}` },
-    { label: "이벤트", href: `/brands/${brand?.slug}#promotion` },
+    { label: "브랜드 소개", href: brand ? `/brands/${brand.slug}` : "/brand-story" },
+    { label: "이벤트", href: "/events" },
     { label: "상품 안내", href: "/products" },
     { label: "픽업 주문", href: "/product" },
     { label: "창업 안내", href: "/franchise" },

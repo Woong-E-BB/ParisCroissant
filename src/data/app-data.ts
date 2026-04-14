@@ -156,7 +156,7 @@ export const topPartnerLinks = ["파리크라상", "Bakery", "Cafe & Dining", "B
 
 export const hubNav = [
   { label: "브랜드", href: "/brand-story" },
-  { label: "이벤트", href: "/brands/paris-baguette#promotion" },
+  { label: "이벤트", href: "/events" },
   { label: "상품", href: "/products" },
   { label: "픽업/예약", href: "/product" },
   { label: "창업/제휴", href: "/franchise" },
@@ -164,7 +164,7 @@ export const hubNav = [
 
 export const brandNav = [
   { label: "브랜드 소개", href: "/brand-story" },
-  { label: "이벤트", href: "/brands/paris-baguette#promotion" },
+  { label: "이벤트", href: "/events" },
   { label: "상품 안내", href: "/products" },
   { label: "픽업 주문", href: "/product" },
   { label: "창업 안내", href: "/franchise" },
