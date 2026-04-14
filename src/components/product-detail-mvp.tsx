@@ -107,7 +107,7 @@ export function ProductDetailMvp({
 
   return (
     <main className="bg-[#f5f3ee]">
-      <SiteHeader variant="croissant" activeLabel="상품 소개" />
+      <SiteHeader variant={brand?.slug ?? "hub"} activeLabel="상품 안내" />
 
       <div className="mx-auto max-w-[1280px] px-4 pb-16 pt-8 sm:px-6">
         <p className="text-[14px] uppercase tracking-[0.18em] text-black/35">{breadcrumbByPage.product}</p>
