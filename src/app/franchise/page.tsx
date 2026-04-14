@@ -9,6 +9,7 @@ import {
   ChevronRight,
   ClipboardList,
   Handshake,
+  Info,
   MapPinned,
   Play,
   Store,
@@ -58,7 +59,7 @@ const actionCards = [
   {
     title: "사업설명회",
     description: "창업을 준비하는 분들을 위한 브랜드 설명회와 상담 흐름을 안내합니다.",
-    href: "https://www.paris.co.kr/franchise/business-presentation/",
+    href: "#presentation",
     icon: CalendarDays,
   },
   {
@@ -199,12 +200,13 @@ export default function FranchisePage() {
             <div className="grid gap-4 sm:grid-cols-2">
               {actionCards.map((card) => {
                 const Icon = card.icon;
+                const isInternal = card.href.startsWith("#");
                 return (
                   <a
                     key={card.title}
                     href={card.href}
-                    target="_blank"
-                    rel="noreferrer"
+                    target={isInternal ? undefined : "_blank"}
+                    rel={isInternal ? undefined : "noreferrer"}
                     className="card-hover group flex flex-col rounded-2xl border border-gray-100 bg-white p-7 shadow-sm transition-shadow hover:border-[#00a0b0]/30 hover:shadow-card"
                   >
                     <div className="flex items-center justify-between">
@@ -316,6 +318,53 @@ export default function FranchisePage() {
                 </div>
               </a>
             ))}
+          </div>
+        </section>
+
+        {/* ── BUSINESS PRESENTATION ── */}
+        <section className="mt-16 overflow-hidden rounded-3xl bg-white shadow-card border border-gray-100" id="presentation">
+          <div className="p-8 sm:p-12">
+            <div className="flex items-center gap-3">
+              <span className="grid h-12 w-12 place-items-center rounded-xl bg-[#00a0b0]/10 text-[#00a0b0]">
+                <CalendarDays className="h-6 w-6" />
+              </span>
+              <p className="text-[14px] font-bold uppercase tracking-[0.2em] text-[#00a0b0]">Business Presentation</p>
+            </div>
+            <h2 className="mt-5 text-[32px] font-bold leading-tight text-[#1a1a2e]">사업설명회 안내</h2>
+            <p className="mt-4 text-[16px] leading-relaxed text-gray-500 max-w-3xl">
+              사업설명회는 별도의 예약 없이 참석이 가능하며, 원활한 상담을 위해 방문 예정일을 사전에 지역 담당자에게 알려주시면 감사하겠습니다. 특히 수도권 외 지역의 경우, 지역 담당자와 일정을 반드시 사전 조율해주시기 바랍니다.
+            </p>
+            
+            <div className="mt-8 grid gap-4 lg:grid-cols-2">
+              <div className="rounded-2xl border border-gray-100 bg-[#fafafa] p-6 lg:p-8">
+                <div className="flex items-center gap-2 text-[#1a1a2e] font-bold text-[18px]">
+                  <CalendarDays className="h-5 w-5 text-[#00a0b0]" />
+                  일정 안내
+                </div>
+                <div className="mt-4 flex items-baseline gap-2">
+                  <span className="text-[20px] font-bold text-[#1a1a2e]">매주 수요일 오전 10시</span>
+                  <span className="text-[14px] text-gray-400 font-medium">(약 2시간 소요)</span>
+                </div>
+              </div>
+              <div className="rounded-2xl border border-gray-100 bg-[#fafafa] p-6 lg:p-8">
+                <div className="flex items-center gap-3 text-[#1a1a2e] font-bold text-[18px]">
+                  <MapPinned className="h-5 w-5 text-[#00a0b0]" />
+                  진행 장소
+                  <a href="https://naver.me/xBw9BCPb" target="_blank" rel="noreferrer" className="flex items-center gap-1 text-[13px] font-semibold text-[#00a0b0] ml-auto hover:underline bg-[#00a0b0]/10 px-3 py-1 rounded-full">지도로 보기 <ArrowUpRight className="h-3 w-3" /></a>
+                </div>
+                <div className="mt-4">
+                  <span className="block text-[16px] font-medium text-[#1a1a2e]">서울특별시 동작구 신대방 16다길 14</span>
+                  <span className="block mt-1 text-[14px] text-gray-500">SPC 5층 도전A 사업설명회장</span>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-3 text-[14px] text-gray-600 bg-gray-50 p-5 rounded-2xl border border-gray-100">
+              <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-white text-gray-400 shadow-sm">
+                <Info className="h-4 w-4" />
+              </span>
+              <p>건물 내 주차 공간이 협소하오니 가능하신 경우 <strong className="text-[#1a1a2e]">대중교통 이용</strong>을 권장드립니다.</p>
+            </div>
           </div>
         </section>
 
