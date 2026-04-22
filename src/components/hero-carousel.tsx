@@ -69,6 +69,8 @@ export function HeroCarousel({
               crop={slide.crop}
               alt={slide.title}
               className="absolute inset-0 h-full w-full"
+              displayMode="contain"
+              objectPosition="center center"
             />
             <div className="overlay-gradient-dark absolute inset-0" />
             <div className="absolute inset-x-0 bottom-0 z-20 p-8 sm:p-12 lg:p-16">

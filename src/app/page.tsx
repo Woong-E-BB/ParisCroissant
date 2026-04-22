@@ -258,6 +258,8 @@ export default function HomePage() {
                   crop={item.crop}
                   alt={item.title}
                   className="min-h-[200px] w-full"
+                  displayMode="contain"
+                  objectPosition="center center"
                 />
                 <div className="p-5">
                   <h3 className="text-[20px] font-bold text-brand-dark">
@@ -295,6 +297,8 @@ export default function HomePage() {
                   crop={card.crop}
                   alt={card.title}
                   className="min-h-[200px] w-full"
+                  displayMode="contain"
+                  objectPosition="center center"
                 />
                 <div className="p-5">
                   <p className="text-[20px] font-bold text-brand-dark">
@@ -376,6 +380,8 @@ export default function HomePage() {
                   crop={card.crop}
                   alt={card.title}
                   className="h-[220px] w-full"
+                  displayMode="contain"
+                  objectPosition="center center"
                 />
                 <div className="p-4">
                   <p className="text-[17px] font-bold text-brand-dark">

@@ -84,6 +84,8 @@ export function CouponSection({ coupons }: CouponSectionProps) {
                 crop={coupon.crop}
                 alt={coupon.title}
                 className="h-[200px] w-full"
+                displayMode="contain"
+                objectPosition="center center"
               />
               {/* Discount Badge */}
               {coupon.discountRate && (

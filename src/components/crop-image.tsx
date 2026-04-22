@@ -6,6 +6,8 @@ type CropImageProps = {
   alt: string;
   className?: string;
   roundedClassName?: string;
+  displayMode?: "auto" | "cover" | "contain";
+  objectPosition?: CSSProperties["objectPosition"];
 };
 
 export function CropImage({
@@ -13,13 +15,16 @@ export function CropImage({
   alt,
   className = "",
   roundedClassName = "",
+  displayMode = "auto",
+  objectPosition = "center",
 }: CropImageProps) {
+  const fitMode = displayMode === "auto" ? crop.mode : displayMode;
   const baseStyle: CSSProperties = {
     aspectRatio: `${crop.width} / ${crop.height}`,
     backgroundColor: crop.backgroundColor,
   };
 
-  if (crop.mode === "cover" || crop.mode === "contain") {
+  if (fitMode === "cover" || fitMode === "contain") {
     return (
       <div
         className={`relative overflow-hidden ${roundedClassName} ${className}`}
@@ -31,7 +36,7 @@ export function CropImage({
           loading="lazy"
           decoding="async"
           className="absolute inset-0 h-full w-full"
-          style={{ objectFit: crop.mode }}
+          style={{ objectFit: fitMode, objectPosition }}
         />
       </div>
     );
